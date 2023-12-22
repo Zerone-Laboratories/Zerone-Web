@@ -1,0 +1,67 @@
+@import "theme";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  text-align: justify;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: $PRIMARY_BACKGROUND_COLOR;
+    // padding: 0 100px;
+    max-width: $PAGE_MAX_WIDTH;
+    scroll-snap-type: mandatory;
+    color: $PRIMARY_COLOR;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+    scroll-snap-points-y: repeat(100vh);
+    margin-inline: auto;
+
+    main,
+    section {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.imageContainer {
+  position: relative;
+
+  .inner {
+    position: absolute;
+  }
+}

@@ -1,0 +1,9 @@
+$PAGE_MAX_WIDTH: 1000px;
+
+$PRIMARY_COLOR: #ffffff;
+$PRIMARY_BACKGROUND_COLOR: #000000;
+
+@media (prefers-color-scheme: dark) {
+  $PRIMARY_COLOR: #000000;
+  $PRIMARY_BACKGROUND_COLOR: #ffffff;
+}
