@@ -1,0 +1,84 @@
+@import "../app/theme.scss";
+
+.CardOuter {
+  // padding: 5px;
+  width: 100%;
+  height: 100%;
+
+  .Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0 0 15px 0 rgba($color: $PRIMARY_COLOR, $alpha: 0.25);
+    border-radius: $BORDER_RADIUS;
+    background-color: $PRIMARY_BACKGROUND_COLOR;
+    padding: 20px;
+    max-width: 320px;
+    height: 500px;
+    color: $PRIMARY_COLOR;
+    text-decoration: none;
+
+    .CardImage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: calc(100%);
+      height: 60%;
+    }
+
+    .CardContent {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      // padding-inline: 20px;
+      height: 40%;
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        display: none;
+        display: -webkit-box;
+        // max number of lines is 3
+        overflow: scroll;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2; // number of lines to show
+        overflow-wrap: break-word;
+      }
+
+      a {
+        margin-top: auto;
+        box-shadow: inset 0 0 10px 0
+          rgba($color: $PRIMARY_BACKGROUND_COLOR, $alpha: 0.25);
+        border-radius: $BORDER_RADIUS;
+        background: $PRIMARY_COLOR;
+        padding: 5px 20px;
+        color: $PRIMARY_BACKGROUND_COLOR;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+          span svg {
+            transform: translateX(-10px);
+          }
+        }
+
+        span {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+
+          svg {
+            transition: 0.2s;
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
