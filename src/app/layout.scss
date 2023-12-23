@@ -17,16 +17,33 @@ button {
   background-color: transparent;
 }
 
+// hide the scrollbar
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   scroll-behavior: smooth;
 
   body {
     display: flex;
     flex-direction: column;
+    margin-inline: auto;
     background-color: $PRIMARY_BACKGROUND_COLOR;
-    // padding: 0 100px;
-    max-width: $PAGE_MAX_WIDTH;
-    scroll-snap-type: mandatory;
+    // max-width: $PAGE_MAX_WIDTH;
+    overflow-y: scroll;
+    scroll-snap-type: y proximity;
     color: $PRIMARY_COLOR;
     font-size: 16px;
     line-height: 1.5;
@@ -42,8 +59,6 @@ html {
       "Open Sans",
       "Helvetica Neue",
       sans-serif;
-    scroll-snap-points-y: repeat(100vh);
-    margin-inline: auto;
 
     main,
     section {
@@ -52,8 +67,18 @@ html {
       justify-content: center;
       align-items: center;
       gap: 100px;
-      width: 100%;
-      height: 100%;
+      padding: 0;
+      // max-width: $PAGE_MAX_WIDTH;
+      padding-inline: calc((100vw - $PAGE_MAX_WIDTH) / 2);
+      width: 100vw;
+      height: 100vh;
+      scroll-snap-align: start;
+    }
+
+    section {
+      flex-direction: row-reverse;
+      background: $SECONDARY_PRIMARY_BACKGROUND_COLOR;
+      color: $SECONDARY_PRIMARY_COLOR;
     }
   }
 }
@@ -63,5 +88,30 @@ html {
 
   .inner {
     position: absolute;
+  }
+}
+
+@media screen and (max-width: calc($PAGE_MAX_WIDTH + 200px)) {
+  html {
+    body {
+      padding: 0 70px;
+
+      main,
+      section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 70px 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  html {
+    background: black;
+    body {
+      display: none;
+    }
   }
 }

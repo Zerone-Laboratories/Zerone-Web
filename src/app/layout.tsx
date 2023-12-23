@@ -1,46 +1,44 @@
+"use client";
+
 import React from "react";
+import Head from "next/head";
 import Link from "next/link";
 
 import NavBar from "./NavBar";
-import ViewPortBind from "@/components/ViewPortBind";
 
 import "./layout.scss";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode[];
 }) {
-  const nav = (
-    <NavBar>
-      <NavBar.Item>
-        <Link href="/">
-          <h1>Zerone Labs</h1>
-        </Link>
-      </NavBar.Item>
-
-      <NavBar.Item>
-        <Link href="/#projects">Projects</Link>
-      </NavBar.Item>
-      <NavBar.Item>
-        <Link href="/#team">Team</Link>
-      </NavBar.Item>
-
-      <NavBar.Item>
-        <Link href="/#contact">Contact</Link>
-      </NavBar.Item>
-    </NavBar>
-  );
-
   return (
     <html lang="en">
+      <Head>
+        <title>Zerone Laborotories</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+
       <body>
-        {React.Children.map(children, (child, i) => (
-          <ViewPortBind first={i === 0}>
-            {i === 0 ? nav : null}
-            {child}
-          </ViewPortBind>
-        ))}
+        <NavBar>
+          <NavBar.Item>
+            <Link href="/">Home</Link>
+          </NavBar.Item>
+
+          <NavBar.Item>
+            <Link href="/#projects">Projects</Link>
+          </NavBar.Item>
+          <NavBar.Item>
+            <Link href="/#team">Team</Link>
+          </NavBar.Item>
+
+          <NavBar.Item>
+            <Link href="/#contact">Contact</Link>
+          </NavBar.Item>
+        </NavBar>
+
+        {children}
       </body>
     </html>
   );
