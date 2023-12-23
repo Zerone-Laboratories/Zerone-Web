@@ -1,0 +1,55 @@
+@import "../app/theme.scss";
+
+.Outer {
+  position: relative;
+  width: 100%;
+
+  .Carousel {
+    overflow: hidden;
+
+    .Container {
+      display: flex;
+      gap: 20px;
+
+      .Slide {
+        flex: 0 0 calc(33% - 10px);
+      }
+    }
+  }
+
+  @mixin ControlButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-50%);
+
+      svg {
+        fill: $SECONDARY_PRIMARY_COLOR;
+      }
+    }
+
+    svg {
+      transition: 0.2s;
+      fill: rgba($SECONDARY_PRIMARY_COLOR, 0.5);
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .ControlButtonLeft {
+    @include ControlButton;
+
+    left: -50px;
+  }
+
+  .ControlButtonRight {
+    @include ControlButton;
+
+    right: -50px;
+  }
+}
